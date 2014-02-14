@@ -16,14 +16,14 @@ public class LoadTexts implements Iterable<String> {
 	files = getFiles();
     }
 
-    private List<File> getFiles() {
-	File folder = new File(path_to_dir);
-	return new ArrayList<File>(Arrays.asList(folder.listFiles()));
-    }
-
     public void setPath(String path) {
 	path_to_dir = path;
 	files = getFiles();
+    }
+
+    private List<File> getFiles() {
+	File folder = new File(path_to_dir);
+	return new ArrayList<File>(Arrays.asList(folder.listFiles()));
     }
 
     @Override
@@ -36,7 +36,7 @@ public class LoadTexts implements Iterable<String> {
 
 	@Override
 	public String next() {
-	    StringBuffer text = new StringBuffer("");
+	    StringBuilder text = new StringBuilder("");
 	    File file = iterator.next();
 	    try (FileInputStream in = new FileInputStream(file)) {
 		int c;
