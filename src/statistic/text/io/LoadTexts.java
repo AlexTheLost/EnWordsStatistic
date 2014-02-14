@@ -1,4 +1,4 @@
-package statistic.text;
+package statistic.text.io;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -8,11 +8,11 @@ import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-public class LoadFiles implements Iterable<String> {
+public class LoadTexts implements Iterable<String> {
     private String path_to_dir = "./texts/files/";
     private List<File> files;
 
-    LoadFiles() {
+    public LoadTexts() {
 	files = getFiles();
     }
 
@@ -36,7 +36,7 @@ public class LoadFiles implements Iterable<String> {
 
 	@Override
 	public String next() {
-	    StringBuffer text = new StringBuffer();
+	    StringBuffer text = new StringBuffer("");
 	    File file = iterator.next();
 	    try (FileInputStream in = new FileInputStream(file)) {
 		int c;
@@ -61,7 +61,7 @@ public class LoadFiles implements Iterable<String> {
     }
 
     public static void main(String[] args) {
-	LoadFiles lf = new LoadFiles();
+	LoadTexts lf = new LoadTexts();
 	for (String text : lf) {
 	    System.out.println(text);
 	}

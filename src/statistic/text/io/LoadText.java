@@ -1,4 +1,4 @@
-package statistic.text;
+package statistic.text.io;
 
 import java.io.FileInputStream;
 import java.io.BufferedInputStream;
